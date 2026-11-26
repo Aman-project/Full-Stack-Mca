@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRUTAL MART</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="toast" class="brutal-toast hidden" role="status"></div>
+
+  <!-- =========================================================
+       CUSTOMER STOREFRONT SHELL (Hidden when /admin is opened)
+       ========================================================= -->
+  <div id="store-shell">
+    <header class="brutal-header">
+      <div class="header-inner">
+        <button type="button" class="logo-block" data-view="store">
+          <span class="logo-title">BRUTAL MART</span>
+        </button>
+
+        <nav class="nav-strip" aria-label="Customer Pages">
+          <button type="button" class="nav-btn active" data-view="store">01. STOREFRONT</button>
+          <button type="button" class="nav-btn" data-view="orders">
+            02. ORDERS <span id="orders-count" class="mini-counter">0</span>
+          </button>
+        </nav>
+
+        <button type="button" id="open-cart-btn" class="brutal-btn btn-yellow cart-trigger">
+          CART [<span id="cart-count">0</span>]
+        </button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <!-- PAGE 1: STOREFRONT -->
+      <section id="view-store" class="page-view">
+        <div class="banner-box bg-yellow">
+          <div class="banner-copy">
+            <h1>ALL PRODUCTS CATALOG</h1>
+            <p>Browse available hardware &amp; workspace gear. Backed locally by .</p>
+          </div>
+          <input
+            type="text"
+            id="store-search"
+            class="brutal-input search-input"
+            placeholder="FILTER BY NAME OR CATEGORY..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div id="store-grid" class="catalog-grid" aria-live="polite"></div>
+      </section>
+
+      <!-- PAGE 2: PRODUCT DETAIL -->
+      <section id="view-detail" class="page-view hidden">
+        <div class="subpage-bar">
+          <button type="button" id="back-to-store-btn" class="brutal-btn btn-white">&larr; BACK TO STOREFRONT</button>
+        </div>
+        <div id="detail-container" class="detail-box"></div>
+      </section>
+
+      <!-- PAGE 3: SUCCESSFUL ORDERS -->
+      <section id="view-orders" class="page-view hidden">
+        <div class="banner-box bg-mint">
+          <div class="banner-copy">
+            <h1>CONFIRMED ORDERS</h1>
+            <p>Every paid checkout writes an order record to  and updates stock.</p>
+          </div>
+        </div>
+
+        <div id="orders-list" class="orders-stack" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <!-- CART & CHECKOUT DRAWER -->
+    <div id="cart-backdrop" class="drawer-backdrop hidden"></div>
+    <aside id="cart-drawer" class="cart-drawer hidden" aria-label="Cart and Payment">
+      <div class="drawer-top">
+        <h2>CART &amp; PAY</h2>
+        <button type="button" id="close-cart-btn" class="brutal-btn btn-pink close-square" aria-label="Close Cart">&times;</button>
+      </div>
+
+      <div id="cart-items" class="cart-stack"></div>
+
+      <div id="checkout-box" class="checkout-panel hidden">
+        <div class="total-bar">
+          <span>TOTAL</span>
+          <strong id="cart-total">₹0.00</strong>
+        </div>
+
+        <form id="payment-form" class="form-stack">
+          <div class="field">
+            <label for="cust-name">BUYER NAME</label>
+            <input id="cust-name" class="brutal-input" type="text" placeholder="Aman Usmani" required />
+          </div>
+
+          <div class="field">
+            <label for="cust-email">EMAIL</label>
+            <input id="cust-email" class="brutal-input" type="email" placeholder="aman@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="pay-method">PAYMENT METHOD</label>
+            <select id="pay-method" class="brutal-input">
+              <option value="UPI">UPI (GPay / PhonePe / Paytm)</option>
+              <option value="Credit/Debit Card">Credit / Debit Card</option>
+              <option value="Net Banking">Net Banking</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label id="pay-detail-label" for="pay-detail">UPI ID</label>
+            <input id="pay-detail" class="brutal-input" type="text" placeholder="username@upi" required />
+          </div>
+
+          <button type="submit" id="pay-now-btn" class="brutal-btn btn-mint full-width">
+            EXECUTE PAYMENT &rarr;
+          </button>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <!-- =========================================================
+       ISOLATED ADMIN PORTAL (/admin ONLY)
+       ========================================================= -->
+  <div id="admin-shell" class="hidden">
+    <!-- STEP 1: ADMIN LOGIN GATE -->
+    <div id="admin-login-screen" class="login-gate">
+      <div class="brutal-box login-card">
+        <div class="login-badge">RESTRICTED // /ADMIN PORTAL</div>
+        <h1>SELLER &amp; ADMIN LOGIN</h1>
+
+        <form id="admin-login-form" class="form-stack">
+          <div class="field">
+            <label for="admin-email">ADMIN EMAIL</label>
+            <input id="admin-email" class="brutal-input" type="email" placeholder="admin@brutalmart.com" required />
+          </div>
+
+          <div class="field">
+            <label for="admin-password">PASSWORD</label>
+            <input id="admin-password" class="brutal-input" type="password" placeholder="••••••••" required />
+          </div>
+
+          <p id="login-error" class="error-strip hidden"></p>
+
+          <button type="submit" class="brutal-btn btn-yellow full-width">UNLOCK ADMIN PORTAL &rarr;</button>
+        </form>
+
+        <div class="cred-hint">
+          DEMO CREDENTIALS: <strong>admin@brutalmart.com</strong> / <strong>admin123</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: AUTHENTICATED ADMIN WORKSPACE -->
+    <div id="admin-workspace" class="hidden">
+      <header class="brutal-header admin-header">
+        <div class="header-inner">
+          <div class="logo-block static-logo">
+            <span class="logo-tag">ADMIN MODE // /ADMIN</span>
+            <span class="logo-title">SELLER STUDIO</span>
+          </div>
+
+          <nav class="nav-strip" aria-label="Admin Tabs">
+            <button type="button" class="admin-tab-btn active" data-admin-view="studio">01. PRODUCT STUDIO</button>
+            <button type="button" class="admin-tab-btn" data-admin-view="json">02. JSON STORAGE</button>
+          </nav>
+
+          <button type="button" id="admin-logout-btn" class="brutal-btn btn-pink">LOGOUT</button>
+        </div>
+      </header>
+
+      <main class="page-shell">
+        <!-- ADMIN TAB 1: SELLER STUDIO -->
+        <section id="admin-view-studio" class="page-view">
+          <div class="banner-box bg-pink">
+            <div class="banner-copy">
+              <h1>SELLER MASTER PANEL</h1>
+              <p>Add new products or edit existing items. Saved immediately to <code>data/products.json</code>.</p>
+            </div>
+          </div>
+
+          <div class="seller-grid">
+            <form id="seller-form" class="brutal-box form-stack">
+              <h2 id="seller-form-title">ADD NEW PRODUCT</h2>
+              <input type="hidden" id="edit-product-id" />
+
+              <div class="field">
+                <label for="prod-name">PRODUCT NAME</label>
+                <input id="prod-name" class="brutal-input" type="text" placeholder="e.g., Brutalist Desk Clock" required />
+              </div>
+
+              <div class="two-col">
+                <div class="field">
+                  <label for="prod-price">PRICE (₹)</label>
+                  <input id="prod-price" class="brutal-input" type="number" step="0.01" min="0" placeholder="1499" required />
+                </div>
+                <div class="field">
+                  <label for="prod-stock">STOCK QTY</label>
+                  <input id="prod-stock" class="brutal-input" type="number" min="0" placeholder="12" required />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="prod-category">CATEGORY</label>
+                <input id="prod-category" class="brutal-input" type="text" placeholder="e.g., Hardware" required />
+              </div>
+
+              <div class="field">
+                <label for="prod-image">IMAGE URL</label>
+                <input id="prod-image" class="brutal-input" type="url" placeholder="https://..." />
+              </div>
+
+              <div class="field">
+                <label for="prod-desc">DESCRIPTION</label>
+                <textarea id="prod-desc" class="brutal-input" rows="3" placeholder="Specs and details..." required></textarea>
+              </div>
+
+              <div class="btn-row">
+                <button type="submit" id="seller-submit-btn" class="brutal-btn btn-violet">SAVE TO JSON</button>
+                <button type="button" id="seller-cancel-btn" class="brutal-btn btn-white hidden">CANCEL EDIT</button>
+              </div>
+            </form>
+
+            <div class="brutal-box">
+              <h2>INVENTORY ITEMS [<span id="seller-count">0</span>]</h2>
+              <div id="seller-list" class="seller-stack"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADMIN TAB 2: JSON DATA INSPECTOR -->
+        <section id="admin-view-json" class="page-view hidden">
+          <div class="banner-box bg-violet">
+            <div class="banner-copy">
+              <h1>LOCAL JSON STORAGE &amp; METRICS</h1>
+              <p>Live snapshot of <code>data/products.json</code> and <code>data/orders.json</code>.</p>
+            </div>
+            <button type="button" id="reload-json-btn" class="brutal-btn btn-yellow">REFRESH SNAPSHOT</button>
+          </div>
+
+          <div id="metrics-row" class="metrics-grid"></div>
+
+          <div class="json-split">
+            <div class="brutal-box">
+              <h2>DATA/PRODUCTS.JSON</h2>
+              <pre id="json-products-pre" class="code-dump"></pre>
+            </div>
+            <div class="brutal-box">
+              <h2>DATA/ORDERS.JSON</h2>
+              <pre id="json-orders-pre" class="code-dump"></pre>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>University Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="container">
+    <!-- Country Search & Quick-Select Section -->
+    <section class="search-section">
+      <div class="search-intro">
+        <h1>University Finder</h1>
+        <p>Look up accredited universities by country to view official web portals and state or province locations.</p>
+      </div>
+
+      <div class="search-controls">
+        <form id="search-form" class="search-form">
+          <input
+            type="text"
+            id="country-input"
+            placeholder="Type a country name (e.g., India, Canada, Japan)..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="search-btn" class="search-btn">Find Universities</button>
+        </form>
+
+        <div class="quick-list" aria-label="Suggested countries">
+          <span class="quick-label">Quick search:</span>
+          <button type="button" class="pill" data-country="India">India</button>
+          <button type="button" class="pill" data-country="United States">United States</button>
+          <button type="button" class="pill" data-country="United Kingdom">United Kingdom</button>
+          <button type="button" class="pill" data-country="Canada">Canada</button>
+          <button type="button" class="pill" data-country="Germany">Germany</button>
+          <button type="button" class="pill" data-country="Japan">Japan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Counter & Secondary Filter Bar -->
+    <section id="results-bar" class="results-bar hidden">
+      <div class="results-summary">
+        Showing <strong id="result-count">0</strong> institutions in <strong id="active-country"></strong>
+      </div>
+      <input
+        type="text"
+        id="filter-input"
+        class="filter-input"
+        placeholder="Filter by university or state..."
+        autocomplete="off"
+      />
+    </section>
+
+    <!-- Loading, Empty & Error Messages -->
+    <div id="status-panel" class="status-panel">
+      Enter a country above or choose one from the quick search list to begin.
+    </div>
+
+    <!-- Dynamic University Directory Output -->
+    <section id="directory-list" class="directory-list" aria-live="polite"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

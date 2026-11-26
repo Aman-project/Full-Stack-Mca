@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+  <h1>Products (<%= products.length %>)</h1>
+  <a class="btn" href="/products/new">+ Add Product</a>
+</div>
+
+<% if (products.length === 0) { %>
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <h2>No products found</h2>
+        <p>Create a product to get started.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/products/new">Create Product</a>
+      </div>
+    </div>
+  </div>
+<% } else { %>
+  <div class="product-grid">
+    <% products.forEach(product => { %>
+      <article class="card">
+        <img
+          class="card-image"
+          src="<%= product.image %>"
+          alt="<%= product.name %>"
+          onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eeece4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%235c6560%22 font-family=%22sans-serif%22 font-size=%2216%22>Image Unavailable</text></svg>';"
+        />
+        <div class="card-body">
+          <div>
+            <div class="price">₹<%= Number(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></div>
+            <h2><%= product.name %></h2>
+            <p><%= product.description %></p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-secondary" href="/products/<%= product.id %>">View</a>
+            <a class="btn btn-secondary" href="/products/<%= product.id %>/edit">Edit</a>
+            <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+<% } %>
+
+  </main>
+</body>
+</html>

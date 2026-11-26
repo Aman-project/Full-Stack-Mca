@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concentric Circles</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f8fafc;
+    }
+
+    .circle {
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Radius 30px -> Diameter 60px */
+    .outer {
+      width: 60px;
+      height: 60px;
+      background-color: #3b82f6;
+    }
+
+    /* Radius 20px -> Diameter 40px */
+    .middle {
+      width: 40px;
+      height: 40px;
+      background-color: #10b981;
+    }
+
+    /* Radius 10px -> Diameter 20px */
+    .inner {
+      width: 20px;
+      height: 20px;
+      background-color: #f59e0b;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle outer">
+    <div class="circle middle">
+      <div class="circle inner"></div>
+    </div>
+  </div>
+</body>
+</html>

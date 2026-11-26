@@ -1,0 +1,69 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+  <h1>Add Product</h1>
+  <a class="btn btn-secondary" href="/products">Back</a>
+</div>
+
+<% if (error) { %>
+  <div class="error-box"><%= error %></div>
+<% } %>
+
+<form class="product-form" action="/products" method="POST">
+  <div class="field">
+    <label for="name">Product Name</label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      value="<%= formData.name %>"
+      placeholder="e.g., Wireless Mouse"
+      required
+    />
+  </div>
+
+  <div class="field">
+    <label for="price">Price (₹)</label>
+    <input
+      id="price"
+      name="price"
+      type="number"
+      step="0.01"
+      min="0"
+      value="<%= formData.price %>"
+      placeholder="e.g., 1999.00"
+      required
+    />
+  </div>
+
+  <div class="field">
+    <label for="image">Image URL</label>
+    <input
+      id="image"
+      name="image"
+      type="url"
+      value="<%= formData.image %>"
+      placeholder="https://example.com/product.jpg"
+      required
+    />
+  </div>
+
+  <div class="field">
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      name="description"
+      rows="4"
+      placeholder="Enter product details..."
+      required
+    ><%= formData.description %></textarea>
+  </div>
+
+  <div class="actions">
+    <button class="btn" type="submit">Create Product</button>
+  </div>
+</form>
+
+  </main>
+</body>
+</html>

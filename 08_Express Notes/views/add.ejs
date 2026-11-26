@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<div class="page-head">
+  <h1>Create a New Note</h1>
+  <a class="btn btn-secondary" href="/">Back to Notes</a>
+</div>
+
+<% if (error) { %>
+  <div class="error-banner"><%= error %></div>
+<% } %>
+
+<form class="note-form" action="/notes" method="POST">
+  <div class="field">
+    <label for="title">Title</label>
+    <input
+      id="title"
+      name="title"
+      type="text"
+      value="<%= formData.title %>"
+      placeholder="e.g., Middleware Order"
+      required
+    />
+  </div>
+
+  <div class="field">
+    <label for="topic">Topic</label>
+    <input
+      id="topic"
+      name="topic"
+      type="text"
+      value="<%= formData.topic %>"
+      placeholder="e.g., Express, JavaScript"
+    />
+  </div>
+
+  <div class="field">
+    <label for="body">Content</label>
+    <textarea
+      id="body"
+      name="body"
+      rows="5"
+      placeholder="Write your note here..."
+      required
+    ><%= formData.body %></textarea>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn" type="submit">Save Note</button>
+  </div>
+</form>
+
+  </main>
+</body>
+</html>

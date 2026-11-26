@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<div class="page-head">
+  <h1>About This App</h1>
+</div>
+
+<div class="card">
+  <p>This Express application uses EJS templates and currently holds <strong><%= totalNotes %></strong> active notes in memory.</p>
+
+  <table class="route-table">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Route</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td><code>/</code></td>
+        <td>Lists all notes</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td><code>/notes/new</code></td>
+        <td>Displays the new note form</td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td><code>/notes</code></td>
+        <td>Creates a new note and redirects</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td><code>/notes/:id</code></td>
+        <td>Displays a single note detail view</td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td><code>/notes/:id/delete</code></td>
+        <td>Deletes a note and redirects</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td><code>/about</code></td>
+        <td>Shows route overview and note count</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plum &amp; Gold Product CRUD</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1>Product Inventory</h1>
+      <span id="item-count" class="count-badge">0 items</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card form-card">
+      <h2 id="form-heading">Create Product</h2>
+      <form id="product-form" class="product-form">
+        <input type="hidden" id="product-id" />
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="e.g., Brass Desk Lamp" required />
+        </div>
+
+        <div class="field">
+          <label for="price">Price (₹)</label>
+          <input id="price" name="price" type="number" step="0.01" min="0" placeholder="e.g., 2499" required />
+        </div>
+
+        <div class="field">
+          <label for="rating">Rating (0 - 5)</label>
+          <input id="rating" name="rating" type="number" step="0.1" min="0" max="5" placeholder="e.g., 4.7" required />
+        </div>
+
+        <div class="field full-span">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3" placeholder="Short product summary..." required></textarea>
+        </div>
+
+        <div class="form-buttons full-span">
+          <button type="submit" id="save-btn" class="btn btn-gold">Save Product</button>
+          <button type="button" id="cancel-btn" class="btn btn-muted hidden">Cancel Edit</button>
+        </div>
+      </form>
+      <p id="status-message" class="status-message hidden" role="status"></p>
+    </section>
+
+    <section class="card list-card">
+      <h2>Stored Products</h2>
+      <div id="product-list" class="product-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

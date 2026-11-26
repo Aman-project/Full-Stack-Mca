@@ -1,0 +1,92 @@
+[
+  {
+    "id": 101,
+    "name": "Wireless Mechanical Keyboard",
+    "price": 6499,
+    "category": "Electronics",
+    "stock": 15,
+    "image": "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80",
+    "description": "Compact 75% hot-swappable mechanical keyboard with tactile switches and dual wireless modes."
+  },
+  {
+    "id": 102,
+    "name": "Studio Noise-Canceling Headphones",
+    "price": 8999,
+    "category": "Audio",
+    "stock": 10,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    "description": "Over-ear wireless headphones with 40-hour battery life and deep acoustic isolation."
+  },
+  {
+    "id": 103,
+    "name": "Aluminum Laptop Riser",
+    "price": 2299,
+    "category": "Workspace",
+    "stock": 25,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80",
+    "description": "Ergonomic ventilated desk stand compatible with 13-inch to 17-inch laptops."
+  },
+  {
+    "id": 104,
+    "name": "Ergonomic Vertical Wireless Mouse",
+    "price": 2799,
+    "category": "Electronics",
+    "stock": 18,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=800&q=80",
+    "description": "6-button rechargeable wireless mouse with adjustable 2400 DPI optical sensor."
+  },
+  {
+    "id": 105,
+    "name": "4K Ultra-HD Webcam with Dual Mic",
+    "price": 5499,
+    "category": "Electronics",
+    "stock": 8,
+    "image": "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=800&q=80",
+    "description": "Auto-focus 4K streaming webcam with low-light correction and privacy shutter."
+  },
+  {
+    "id": 106,
+    "name": "USB-C 8-in-1 Multiport Hub",
+    "price": 3199,
+    "category": "Accessories",
+    "stock": 22,
+    "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=800&q=80",
+    "description": "Aluminum dock with 4K HDMI, 100W Power Delivery, Gigabit Ethernet, and SD reader."
+  },
+  {
+    "id": 107,
+    "name": "Architect LED Desk Task Lamp",
+    "price": 1899,
+    "category": "Workspace",
+    "stock": 14,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+    "description": "Stepless dimming clamp lamp with 3 color temperatures and zero screen glare."
+  },
+  {
+    "id": 108,
+    "name": "Portable Bluetooth Monitor Speaker",
+    "price": 4299,
+    "category": "Audio",
+    "stock": 11,
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80",
+    "description": "IPX7 waterproof stereo speaker with 20W output and USB-C fast charging."
+  },
+  {
+    "id": 109,
+    "name": "1TB NVMe Portable External SSD",
+    "price": 7899,
+    "category": "Storage",
+    "stock": 6,
+    "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80",
+    "description": "Pocket-sized rugged SSD delivering 1050 MB/s read speeds over USB 3.2 Gen 2."
+  },
+  {
+    "id": 110,
+    "name": "Wool Felt Extended Desk Mat",
+    "price": 1299,
+    "category": "Workspace",
+    "stock": 30,
+    "image": "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?auto=format&fit=crop&w=800&q=80",
+    "description": "900mm x 400mm anti-slip wool felt mat for keyboard, mouse, and notebook organization."
+  }
+]

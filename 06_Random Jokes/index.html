@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Joke Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="joke-card">
+    <header class="card-header">
+      <span id="category-badge" class="badge">Any</span>
+      <select id="category-select" class="category-select" aria-label="Select joke category">
+        <option value="Any">All Categories</option>
+        <option value="Programming">Programming</option>
+        <option value="Misc">Misc</option>
+        <option value="Pun">Pun</option>
+        <option value="Spooky">Spooky</option>
+        <option value="Christmas">Christmas</option>
+      </select>
+    </header>
+
+    <section class="joke-body" aria-live="polite">
+      <div id="loader" class="loader hidden">Fetching a fresh joke...</div>
+      <p id="joke-setup" class="joke-setup">Click below to load your first random joke!</p>
+      <p id="joke-delivery" class="joke-delivery hidden"></p>
+      <p id="error-msg" class="error-msg hidden"></p>
+    </section>
+
+    <footer class="card-actions">
+      <button id="reveal-btn" class="secondary-btn hidden" type="button">Show Punchline</button>
+      <button id="copy-btn" class="secondary-btn" type="button">Copy</button>
+      <button id="new-joke-btn" class="primary-btn" type="button">New Joke</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Catalog (Client-Side Rendered)</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>Product Catalog</h1>
+      <span id="product-count" class="count-pill">0 products</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Add New Product Form -->
+    <section class="panel">
+      <h2>Add New Product</h2>
+      <form id="product-form" class="product-form" novalidate>
+        <div class="field">
+          <label for="name">Product Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="e.g., Studio Headphones"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="price">Price (₹)</label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            step="0.01"
+            min="0"
+            placeholder="e.g., 3999"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="rating">Rating (0 - 5)</label>
+          <input
+            id="rating"
+            name="rating"
+            type="number"
+            step="0.1"
+            min="0"
+            max="5"
+            placeholder="e.g., 4.7"
+            required
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn-primary">Add Product</button>
+        </div>
+      </form>
+      <p id="feedback-msg" class="feedback-msg hidden" role="status"></p>
+    </section>
+
+    <!-- Client-Side Rendered Product List -->
+    <section class="panel">
+      <div class="list-header">
+        <h2>All Products</h2>
+        <button type="button" id="refresh-btn" class="btn-secondary">Refresh</button>
+      </div>
+      <div id="product-list" class="product-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

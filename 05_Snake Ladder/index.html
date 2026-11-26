@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake & Ladder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="game-container">
+    <div class="board-shell">
+      <div id="board" class="board"></div>
+      <svg id="overlay" class="overlay" viewBox="0 0 500 500" preserveAspectRatio="none"></svg>
+    </div>
+
+    <aside class="control-panel">
+      <h1>Snake &amp; Ladder</h1>
+
+      <div class="players-status">
+        <div id="p1-card" class="player-card active">
+          <span class="token-dot p1-dot"></span>
+          <div class="player-info">
+            <span class="player-name">Player 1</span>
+            <span id="p1-pos" class="player-pos">Position: 1</span>
+          </div>
+        </div>
+
+        <div id="p2-card" class="player-card">
+          <span class="token-dot p2-dot"></span>
+          <div class="player-info">
+            <span class="player-name">Player 2</span>
+            <span id="p2-pos" class="player-pos">Position: 1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dice-box">
+        <div id="dice" class="dice">1</div>
+        <button id="roll-btn" class="roll-btn">Roll Dice</button>
+      </div>
+
+      <p id="status-msg" class="status-msg">Player 1's turn to roll</p>
+
+      <div class="legend">
+        <span class="legend-item"><i class="ladder-swatch"></i> Ladder (Climb up)</span>
+        <span class="legend-item"><i class="snake-swatch"></i> Snake (Slide down)</span>
+      </div>
+
+      <button id="reset-btn" class="reset-btn">Reset Game</button>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

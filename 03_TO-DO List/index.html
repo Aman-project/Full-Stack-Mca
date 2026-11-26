@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow glow-violet"></div>
+    <div class="glow glow-teal"></div>
+  </div>
+
+  <main class="todo-app">
+    <header class="app-header">
+      <h1>To-Do List</h1>
+      <span id="task-counter" class="task-counter">0 / 0 done</span>
+    </header>
+
+    <form id="todo-form" class="todo-form">
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="Add a task and press Enter..."
+        autocomplete="off"
+        required
+      />
+      <button type="submit" class="add-btn">Add</button>
+    </form>
+
+    <ul id="todo-list" class="todo-list"></ul>
+    <p id="empty-state" class="empty-state">No tasks yet. Type one above and press Enter.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
